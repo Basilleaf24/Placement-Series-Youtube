@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+    int n, m;
+    cin>>n;
+    cin>>m;
+    int *arr=new int[m], i;
+    for(i=0; i<m; i++)
+            cin>>arr[i];
+    for(i=0; i<m; i++)
+    {
+        if(arr[i]==n)
+        {
+             cout<<"TRUE"<<endl;
+             return 1;
+        }
+
+
+    }
+    delete []arr;
+     cout<<"FALSE"<<endl;
+
+    return 0;
+}

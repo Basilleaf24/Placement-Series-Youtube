@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+	int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n, i, j, k, count=0;
+	   
+	    cin>>n>>k;
+	    int arr[n];
+	    for(i=0; i<n; i++)
+	        cin>>arr[i];
+	    for(i=0; i<n-1; i++)
+	    {
+	        for(j=i+1; j<n; j++)
+	    {
+	        if(arr[i]+arr[j]==k)
+	            count++;
+	    }
+	    }
+	    
+	    cout<<count<<endl;
+	}
+	return 0;
+}
+/*ALTERNATIVE USING MAP
+int getPairsCount(int arr[], int n, int sum) 
+{ 
+    unordered_map<int, int> m; 
+  
+    // Store counts of all elements in map m 
+    for (int i=0; i<n; i++) 
+        m[arr[i]]++; 
+  
+    int twice_count = 0; 
+  
+    // iterate through each element and increment the 
+    // count (Notice that every pair is counted twice) 
+    for (int i=0; i<n; i++) 
+    { 
+        twice_count += m[sum-arr[i]]; 
+  
+        // if (arr[i], arr[i]) pair satisfies the condition, 
+        // then we need to ensure that the count is 
+        // decreased by one such that the (arr[i], arr[i]) 
+        // pair is not considered 
+        if (sum-arr[i] == arr[i]) 
+            twice_count--; 
+    } 
+  
+    // return the half of twice_count 
+    return twice_count/2; 
+}
+*/
